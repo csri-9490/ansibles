@@ -1,0 +1,17 @@
+- name: Setup Robohsop Project
+  hosts: all
+  become: yes
+  tasks:
+    - name: Import Catalogue
+      ansible.builtin.import_role:
+        name: catalogue
+      tags:
+        - catalogue
+      when: APP == "catalogue"
+
+    - name: Import Frontend
+      ansible.builtin.import_role:
+        name: frontend
+      tags:
+        - frontend
+      when: APP == "frontend"
