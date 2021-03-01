@@ -4,4 +4,4 @@
 #    state: present
 - name: Print
   debug:
-    msg: hello from catalogue
+    msg: hello from frontend
