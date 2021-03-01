@@ -11,6 +11,6 @@
     - name: Import catalogue
       ansible.builtin.import_role:
         name: catalogue
-        tags: ctalogue
+      tags: ctalogue
       when: APP == "catalogue"
 
