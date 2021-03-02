@@ -1,9 +1,9 @@
 - name: Install NodeJS
-  ansible.builtin.yum:
+  yum:
     name:
-      -nodejs
-      -make
-      -gcc-c++
+      - nodejs
+      - make
+      - gcc-c++
     state: present
 
 - name: Download {{ APP }} Componenet
