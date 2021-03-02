@@ -2,17 +2,16 @@
   hosts: all
   become: yes
   tasks:
-    - name: Import frontend
-      ansible.builtin.import_role:
-        name: frontend
-      tags: frontend
-      when: APP == "frontend"
-
-
-    - name: Import catalogue
+    - name: Import Catalogue
       ansible.builtin.import_role:
         name: catalogue
-      tags: catalogue
+      tags:
+        - catalogue
       when: APP == "catalogue"
 
-
+    - name: Import Frontend
+      ansible.builtin.import_role:
+        name: frontend
+      tags:
+        - frontend
+      when: APP == "frontend"
