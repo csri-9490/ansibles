@@ -1,0 +1,5 @@
+- name: Set Hostname for {{ APP }} Component
+  ansible.builtin.shell: set-hostname {{ APP }}
+
+- name: Disable Auto Shutdown for {{ APP }} Component
+  ansible.builtin.shell: disable-auto-shutdown
