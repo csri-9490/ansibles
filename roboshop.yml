@@ -38,9 +38,9 @@
       when: APP == "user"
 
     - name: Import cart
-        ansible.builtin.import_role:
-          name: cart
-        tags:
+      ansible.builtin.import_role:
+        name: cart
+      tags:
           - cart
-        when: APP == "cart"
+      when: APP == "cart"
 
