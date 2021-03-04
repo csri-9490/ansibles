@@ -17,6 +17,11 @@
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 
+- name: Download {{ COMPONENT }} Component
+  ansible.builtin.include_tasks: systemd.yml
+
+
+
 #- name: Download {{ APP }} Componenet
 #  include_role:
 #    name: common
