@@ -6,14 +6,6 @@
       - gcc-c++
     state: present
 
-#- name: Download {{ APP }} Componenet
-#  include_role:
-#    name: common
-#    tasks_from: curl_download
-#  vars:
-#    EXTRACT_DIR: /home/roboshop/{{APP}}
-#    APP_USER: roboshop
-
 - name: Download {{ COMPONENT }} Component
   ansible.builtin.include_tasks: curl_download.yml
   vars:
@@ -24,3 +16,12 @@
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
+
+#- name: Download {{ APP }} Componenet
+#  include_role:
+#    name: common
+#    tasks_from: curl_download
+#  vars:
+#    EXTRACT_DIR: /home/roboshop/{{APP}}
+#    APP_USER: roboshop
+
