@@ -14,13 +14,13 @@
 #    EXTRACT_DIR: /home/roboshop/{{APP}}
 #    APP_USER: roboshop
 
-- name: Download {{ APP }} Component
+- name: Download {{ COMPONENT }} Component
   ansible.builtin.include_tasks: curl_download.yml
   vars:
-    EXTRACT_DIR: /home/roboshop/{{APP}}
+    EXTRACT_DIR: /home/roboshop/{{COMPONENT}}
     APP_USER: roboshop
 
 - name: Install NodeJS Modules
   community.general.npm:
-    path: /home/roboshop/{{APP}}
+    path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
