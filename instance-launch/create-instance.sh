@@ -10,14 +10,14 @@ if [ "${component}" == "all" ]; then
       echo "Creating ${component} Server"
       STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].State.Name' --output text)
       if [ "$STATE" != "running" ]; then
-      aws ec2 run-instances  --launch-template LaunchTemplateId=lt-0c43aaeb0e08199e0 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]" &>/tmp/{component}.log
+      aws ec2 run-instances  --launch-template LaunchTemplateId=lt-06383d1526d457148 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]" &>/tmp/{component}.log
       sleep 5
       fi
       IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
       export component
       export IPADDRESS
       envsubst <record.json >/tmp/${component}.json
-      aws route53 change-resource-record-sets --hosted-zone-id Z076258917LZOFQ2TZ491 --change-batch file:///tmp/${component}.json
+      aws route53 change-resource-record-sets --hosted-zone-id Z0438602WZKT8OQ2PFB4 --change-batch file:///tmp/${component}.json
       sed -i -e "/${component}/ d" ../inventory
       PUBLIC_IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
       echo "${PUBLIC_IPADDRESS} APP=${component}" >>../inventory
@@ -33,7 +33,7 @@ fi
 STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].State.Name' --output text)
 
 if [ "$STATE" != "running" ]; then
-  aws ec2 run-instances  --launch-template LaunchTemplateId=lt-0c43aaeb0e08199e0 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]"
+  aws ec2 run-instances  --launch-template LaunchTemplateId=lt-06383d1526d457148 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]"
   sleep 15
 fi
 
@@ -43,7 +43,7 @@ export IPADDRESS
 
 envsubst <record.json >/tmp/${component}.json
 
-aws route53 change-resource-record-sets --hosted-zone-id Z076258917LZOFQ2TZ491 --change-batch file:///tmp/${component}.json
+aws route53 change-resource-record-sets --hosted-zone-id Z0438602WZKT8OQ2PFB4 --change-batch file:///tmp/${component}.json
 
 
 ### This is for inventory file
