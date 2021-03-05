@@ -1,0 +1,4 @@
+- name: Demon on vaults
+  hosts: all
+  vars:
+    password: Castaway7!
