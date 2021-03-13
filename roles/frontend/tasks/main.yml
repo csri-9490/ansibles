@@ -3,6 +3,17 @@
     name: nginx
     state: present
 
+##### This is download from Git repo directly
+#- name: Download {{ APP }} Component
+#  include_role:
+#    name: common
+#    tasks_from: curl_download
+#  vars:
+#    URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+#    EXTRACT_DIR: /usr/share/nginx
+#    APP_USER: root
+#    COMPONENT_DIR: /usr/share/nginx/html
+
 - name: Download {{ APP }} Component
   include_role:
     name: common
@@ -11,9 +22,16 @@
     URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
     EXTRACT_DIR: /usr/share/nginx/html
     APP_USER: root
+    COMPONENT_DIR: /usr/share/nginx/html
+    ####ARCHIVE_FILE: "{{COMPONENT}}.zip"
 
-- name: Start nginx server
+
+- name: Copy Nginx Config file
+  template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Start Nginx Service
   systemd:
     name: nginx
     state: restarted
-
