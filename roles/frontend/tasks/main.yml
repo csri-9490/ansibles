@@ -19,7 +19,7 @@
     name: common
     tasks_from: nexus_download
   vars:
-    URL: "http://172.31.74.116:8081/repository/frontend/frontend-1.{{APP_VERSION}}.zip"
+    URL: "http://172.31.84.101:8081/repository/frontend/frontend-1.{{APP_VERSION}}.zip"
     EXTRACT_DIR: /usr/share/nginx/html
     APP_USER: root
     COMPONENT_DIR: /usr/share/nginx/html

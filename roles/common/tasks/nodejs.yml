@@ -20,14 +20,3 @@
 
 - name: Download {{ COMPONENT }} Component
   ansible.builtin.include_tasks: systemd.yml
-
-
-
-#- name: Download {{ APP }} Componenet
-#  include_role:
-#    name: common
-#    tasks_from: curl_download
-#  vars:
-#    EXTRACT_DIR: /home/roboshop/{{APP}}
-#    APP_USER: roboshop
-
