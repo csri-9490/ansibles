@@ -3,7 +3,7 @@
     name: nginx
     state: present
 
- This is download from Git repo directly
+## This is download from Git repo directly
 - name: Download {{ APP }} Component
   include_role:
     name: common
