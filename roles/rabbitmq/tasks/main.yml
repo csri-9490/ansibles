@@ -28,3 +28,8 @@
     write_priv: .*
     state: present
     tags: administrator
+
+- name: Setup Node Exporter
+  include_role:
+    name: common
+    tasks_from: node_exporter

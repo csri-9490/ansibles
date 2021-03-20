@@ -4,3 +4,8 @@
     tasks_from: python
   vars:
     URL: "https://github.com/roboshop-devops-project/payment/archive/main.zip"
+
+- name: Setup Node Exporter
+  include_role:
+    name: common
+    tasks_from: node_exporter
