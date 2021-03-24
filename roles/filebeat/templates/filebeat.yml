@@ -3,7 +3,7 @@ filebeat.inputs:
     enabled: true
     paths:
       - /var/log/{{COMPONENT}}.log
-      - type: filestream
+
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
