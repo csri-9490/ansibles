@@ -1,0 +1,9 @@
+- name: Install Filebeat
+  yum:
+    name: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.12.0-x86_64.rpm
+    state: Installed
+
+- name: Filebeat Configurtaion
+  template:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
