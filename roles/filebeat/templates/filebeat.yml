@@ -14,5 +14,7 @@ setup.template.settings:
 
 setup.kibana:
 output.elasticsearch:
-  hosts: ["localhost:9200"]
+  #hosts: ["localhost:9200"]  #ip is the elasticsearch(ELK) private address
+  hosts: ["172.31.66.147:9200"]
+
 
