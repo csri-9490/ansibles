@@ -5,10 +5,10 @@
   vars:
     URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
 
-- name: Setup Node Exporter
-  include_role:
-    name: common
-    tasks_from: node_exporter
+#- name: Setup Node Exporter
+#  include_role:
+#    name: common
+#    tasks_from: node_exporter
 
 - name: Setup Filebeat
   include_role:
