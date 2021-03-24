@@ -3,12 +3,12 @@
     name: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.12.0-x86_64.rpm
     state: installed
 
-- name: Filebeat Configurtaion
-  template:
-    src: filebeat.yml
-    dest: /etc/filebeat/filebeat.yml
+#- name: Filebeat Configurtaion
+#  template:
+#    src: filebeat.yml
+#    dest: /etc/filebeat/filebeat.yml
 
-- name: Start Filebeat service
-  systemd:
-    name: filebeat
-    state: restarted
+#- name: Start Filebeat service
+#  systemd:
+#    name: filebeat
+#    state: restarted
