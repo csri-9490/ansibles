@@ -14,8 +14,7 @@
     COMPONENT_DIR: /home/roboshop/{{COMPONENT}}
 
 - name: Install NodeJS Modules
-  #community.general.npm:
-  npm:
+  community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 
